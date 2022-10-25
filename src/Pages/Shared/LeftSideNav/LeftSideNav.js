@@ -17,7 +17,7 @@ const LeftSideNav = () => {
 
   return (
     <div>
-      <h2>All Categories: {categories.length}</h2>
+      <h2>COURSES:</h2>
       <div>
         {categories.map((category) => (
           <p key={category.id}>

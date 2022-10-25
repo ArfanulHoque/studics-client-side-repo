@@ -10,28 +10,38 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="/src/images/logo.png">
+        <Navbar.Brand href="">
           <img
             src="/src/images/logo.png"
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
+            width=""
+            height=""
+            className="d-inline-block  align-top"
             alt=""
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto text-decoration-none">
             <Button variant="light">
-              <Link to="/">Home</Link>
+              <Link className=" text-decoration-none fw-bold" to="/">
+                Home
+              </Link>
             </Button>
             <Button variant="light">
-              <Link to="/">Courses</Link>
+              <Link className="text-decoration-none fw-bold" to="/">
+                Courses
+              </Link>
             </Button>
 
-            <Nav.Link href="#pricing">FAQ</Nav.Link>
             <Button variant="light">
-              <Link to="/blog">Blog</Link>
+              <Link className="text-decoration-none fw-bold" to="/faq">
+                FAQ
+              </Link>
+            </Button>
+            <Button variant="light">
+              <Link className="text-decoration-none fw-bold" to="/blog">
+                Blog
+              </Link>
             </Button>
           </Nav>
           <Nav>

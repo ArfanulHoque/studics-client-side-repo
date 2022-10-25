@@ -6,7 +6,7 @@ const Home = () => {
   const allCourses = useLoaderData();
   return (
     <div>
-      <h2>Studics Courses Home: {allCourses.length}</h2>
+      <h2>Studics Courses</h2>
       {allCourses.map((courses) => (
         <CoursesCart key={courses.id} courses={courses}></CoursesCart>
       ))}

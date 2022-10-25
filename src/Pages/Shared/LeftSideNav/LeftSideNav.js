@@ -2,6 +2,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const LeftSideNav = () => {
   const [categories, setCategories] = useState([]);
@@ -22,6 +25,14 @@ const LeftSideNav = () => {
           </p>
         ))}
       </div>
+      <ButtonGroup vertical>
+        <Button className="mb-3" variant="outline-primary">
+          <FaGoogle></FaGoogle> Login With Google
+        </Button>
+        <Button variant="outline-dark">
+          <FaGithub></FaGithub> Login With Github{" "}
+        </Button>
+      </ButtonGroup>
     </div>
   );
 };

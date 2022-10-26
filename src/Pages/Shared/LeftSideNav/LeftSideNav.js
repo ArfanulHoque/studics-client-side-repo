@@ -5,8 +5,24 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const LeftSideNav = () => {
+  const { providerLogin } = useContext(AuthContext);
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
+
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -26,7 +42,11 @@ const LeftSideNav = () => {
         ))}
       </div>
       <ButtonGroup vertical>
-        <Button className="mb-3" variant="outline-primary">
+        <Button
+          onClick={handleGoogleSignIn}
+          className="mb-3"
+          variant="outline-primary"
+        >
           <FaGoogle></FaGoogle> Login With Google
         </Button>
         <Button variant="outline-dark">

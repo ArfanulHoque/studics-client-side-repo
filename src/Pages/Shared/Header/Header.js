@@ -6,11 +6,20 @@ import { Link } from "react-router-dom";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import Button from "react-bootstrap/Button";
 import { BsMoonFill, BsFillSunFill } from "react-icons/bs";
+import { FaUser, IconName } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import { Image } from "react-bootstrap";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
@@ -49,9 +58,38 @@ const Header = () => {
             </Button>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
+            <Nav.Link href="#deets">
+              {user?.uid ? (
+                <>
+                  <span>{user?.displayName}</span>
+                  <Button onClick={handleLogOut} variant="light">
+                    Log Out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    className="text-decoration-none fw-bold mx-2"
+                    to="/login"
+                  >
+                    Login
+                  </Link>
+                  <Link className="text-decoration-none fw-bold" to="/register">
+                    Register
+                  </Link>
+                </>
+              )}
+            </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
-              Dank memes
+              {user?.photoURL ? (
+                <Image
+                  style={{ height: "30px" }}
+                  roundedCircle
+                  src={user?.photoURL}
+                ></Image>
+              ) : (
+                <FaUser></FaUser>
+              )}
             </Nav.Link>
           </Nav>
           <div>

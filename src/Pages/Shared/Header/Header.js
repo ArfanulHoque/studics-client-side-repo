@@ -5,8 +5,12 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import Button from "react-bootstrap/Button";
+import { BsMoonFill, BsFillSunFill } from "react-icons/bs";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
@@ -45,11 +49,14 @@ const Header = () => {
             </Button>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
+            <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               Dank memes
             </Nav.Link>
           </Nav>
+          <div>
+            <BsMoonFill></BsMoonFill>
+          </div>
           <div className="d-lg-none">
             <LeftSideNav></LeftSideNav>
           </div>

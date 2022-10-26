@@ -7,15 +7,26 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const LeftSideNav = () => {
   const { providerLogin } = useContext(AuthContext);
+  const { providerLoginWithGithub } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const handleGithubSignIn = () => {
+    providerLoginWithGithub(githubProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -49,8 +60,8 @@ const LeftSideNav = () => {
         >
           <FaGoogle></FaGoogle> Login With Google
         </Button>
-        <Button variant="outline-dark">
-          <FaGithub></FaGithub> Login With Github{" "}
+        <Button onClick={handleGithubSignIn} variant="outline-dark">
+          <FaGithub></FaGithub> Login With Github
         </Button>
       </ButtonGroup>
     </div>

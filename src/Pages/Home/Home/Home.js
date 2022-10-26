@@ -7,9 +7,11 @@ const Home = () => {
   return (
     <div>
       <h2>Studics Courses</h2>
-      {allCourses.map((courses) => (
-        <CoursesCart key={courses.id} courses={courses}></CoursesCart>
-      ))}
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+        {allCourses.map((courses) => (
+          <CoursesCart key={courses._id} courses={courses}></CoursesCart>
+        ))}
+      </div>
     </div>
   );
 };

@@ -5,10 +5,10 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 
 const CoursesCart = ({ courses }) => {
-  const { title, description, image, id } = courses;
+  const { title, description, image, _id } = courses;
 
   return (
-    <div className="d-flex row-cols-1 row-cols-md-3 g-4">
+    <div className="d-flex row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
       <Card className="mb-5  " style={{ width: "18rem" }}>
         <Card.Img variant="top" src={image} />
         <Card.Body>
@@ -17,7 +17,7 @@ const CoursesCart = ({ courses }) => {
             {description.length > 100 ? (
               <p>
                 {description.slice(0, 100) + "..."}
-                <Link to={`/courses/${id}`}>Read More</Link>
+                <Link to={`/courses/${_id}`}>Read More</Link>
               </p>
             ) : (
               <p>{description}</p>

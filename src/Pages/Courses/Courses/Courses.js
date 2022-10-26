@@ -4,12 +4,11 @@ import CoursesCart from "../../Shared/CoursesCart/CoursesCart/CoursesCart";
 
 const Courses = () => {
   const coursesCategory = useLoaderData();
+  console.log(coursesCategory);
   return (
     <div>
       <h2>Course</h2>
-      {coursesCategory.get((courses) => (
-        <CoursesCart key={courses.id} CoursesCart={courses}></CoursesCart>
-      ))}
+      {<CoursesCart courses={coursesCategory}></CoursesCart>}
     </div>
   );
 };

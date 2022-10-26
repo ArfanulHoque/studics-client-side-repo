@@ -8,6 +8,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { AiFillCaretRight } from "react-icons/ai";
 
 const LeftSideNav = () => {
   const { providerLogin } = useContext(AuthContext);
@@ -48,7 +49,13 @@ const LeftSideNav = () => {
       <div>
         {categories.map((category) => (
           <p key={category.id}>
-            <Link to={`/category/${category.id}`}>{category.name}</Link>
+            <Link
+              className="text-decoration-none fw-bold fs-6"
+              to={`/category/${category.id}`}
+            >
+              <AiFillCaretRight></AiFillCaretRight>
+              {category.name}
+            </Link>
           </p>
         ))}
       </div>

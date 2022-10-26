@@ -10,6 +10,7 @@ import { FaUser, IconName } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { Image } from "react-bootstrap";
+import logo from "../../../images/logo.png";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -25,13 +26,15 @@ const Header = () => {
       <Container>
         <Navbar.Brand href="">
           <img
-            src="/src/images/logo.png"
-            width=""
-            height=""
+            src={logo}
+            width="30px"
+            height="30px"
             className="d-inline-block  align-top"
             alt=""
           />
+          <span className="fw-bold text-info">Studics</span>
         </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto text-decoration-none">

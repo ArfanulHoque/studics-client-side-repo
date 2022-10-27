@@ -1,43 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { FaGoogle, FaGithub } from "react-icons/fa";
-import { useContext } from "react";
-import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { Link } from "react-router-dom";
 import { AiFillCaretRight } from "react-icons/ai";
 
 const LeftSideNav = () => {
-  const { providerLogin } = useContext(AuthContext);
-  const { providerLoginWithGithub } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const googleProvider = new GoogleAuthProvider();
-  const githubProvider = new GithubAuthProvider();
-
-  const handleGoogleSignIn = () => {
-    providerLogin(googleProvider)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        navigate("/");
-      })
-      .catch((error) => console.error(error));
-  };
-
-  const handleGithubSignIn = () => {
-    providerLoginWithGithub(githubProvider)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        navigate("/");
-      })
-      .catch((error) => console.error(error));
-  };
-
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {

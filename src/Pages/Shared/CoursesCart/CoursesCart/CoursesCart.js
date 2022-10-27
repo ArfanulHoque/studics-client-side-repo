@@ -1,11 +1,11 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 
 const CoursesCart = ({ courses }) => {
   const { title, description, image, _id } = courses;
+  console.log(_id);
 
   return (
     <div className="d-flex row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -23,7 +23,7 @@ const CoursesCart = ({ courses }) => {
               <p>{description}</p>
             )}
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Button variant="primary">Details</Button>
         </Card.Body>
       </Card>
     </div>

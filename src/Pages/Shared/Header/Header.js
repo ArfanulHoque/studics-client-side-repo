@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import Button from "react-bootstrap/Button";
 import { BsMoonFill, BsFillSunFill } from "react-icons/bs";
@@ -39,25 +39,25 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto text-decoration-none">
             <Button variant="light">
-              <Link className=" text-decoration-none fw-bold" to="/">
+              <NavLink className=" text-decoration-none fw-bold" to="/">
                 Home
-              </Link>
+              </NavLink>
             </Button>
             <Button variant="light">
-              <Link className="text-decoration-none fw-bold" to="/">
+              <NavLink className="text-decoration-none fw-bold" to="/">
                 Courses
-              </Link>
+              </NavLink>
             </Button>
 
             <Button variant="light">
-              <Link className="text-decoration-none fw-bold" to="/faq">
+              <NavLink className="text-decoration-none fw-bold" to="/faq">
                 FAQ
-              </Link>
+              </NavLink>
             </Button>
             <Button variant="light">
-              <Link className="text-decoration-none fw-bold" to="/blog">
+              <NavLink className="text-decoration-none fw-bold" to="/blog">
                 Blog
-              </Link>
+              </NavLink>
             </Button>
           </Nav>
           <Nav>

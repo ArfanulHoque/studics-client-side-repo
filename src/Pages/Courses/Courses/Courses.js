@@ -8,7 +8,7 @@ const Courses = () => {
   return (
     <div>
       <h2>Course</h2>
-      {<CoursesCart courses={coursesCategory}></CoursesCart>}
+      <CoursesCart courses={coursesCategory}></CoursesCart>
     </div>
   );
 };

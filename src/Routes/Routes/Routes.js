@@ -55,7 +55,7 @@ export const routes = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/cartDetails",
+        path: "/cartdetails",
         element: <CartDetails></CartDetails>,
       },
       {

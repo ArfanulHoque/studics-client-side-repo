@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -11,14 +11,19 @@ import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { Image } from "react-bootstrap";
 import logo from "../../../images/logo.png";
+import "./Header.css";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
+  const [toggle, setToggle] = useState(false);
 
   const handleLogOut = () => {
     logout()
       .then(() => {})
       .catch((error) => console.error(error));
+  };
+  const handleToggle = () => {
+    setToggle(!toggle);
   };
 
   return (
@@ -59,6 +64,17 @@ const Header = () => {
                 Blog
               </NavLink>
             </Button>
+            <div>
+              {toggle === true ? (
+                <Button onClick={handleToggle} variant="primary" size="sm">
+                  Light Mode
+                </Button>
+              ) : (
+                <Button onClick={handleToggle} variant="secondary" size="sm">
+                  Dark Mode
+                </Button>
+              )}
+            </div>
           </Nav>
           <Nav>
             <Nav.Link href="#deets">
@@ -85,11 +101,19 @@ const Header = () => {
             </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               {user?.photoURL ? (
-                <Image
-                  style={{ height: "30px" }}
-                  roundedCircle
-                  src={user?.photoURL}
-                ></Image>
+                <div className="HeaderImg">
+                  <img
+                    className="HeaderImg mx-2"
+                    style={{ height: "30px", borderRadius: "100%" }}
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                  <div class="sub-menu">
+                    <p>
+                      <b>{user?.displayName}</b>
+                    </p>
+                  </div>
+                </div>
               ) : (
                 <FaUser></FaUser>
               )}

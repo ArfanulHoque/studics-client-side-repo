@@ -62,18 +62,6 @@ const LeftSideNav = () => {
           </p>
         ))}
       </div>
-      <ButtonGroup vertical>
-        <Button
-          onClick={handleGoogleSignIn}
-          className="mb-3"
-          variant="outline-primary"
-        >
-          <FaGoogle></FaGoogle> Login With Google
-        </Button>
-        <Button onClick={handleGithubSignIn} variant="outline-dark">
-          <FaGithub></FaGithub> Login With Github
-        </Button>
-      </ButtonGroup>
     </div>
   );
 };

@@ -95,9 +95,7 @@ const Header = () => {
               )}
             </Nav.Link>
           </Nav>
-          <div>
-            <BsMoonFill></BsMoonFill>
-          </div>
+
           <div className="d-lg-none">
             <LeftSideNav></LeftSideNav>
           </div>

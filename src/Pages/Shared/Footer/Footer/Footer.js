@@ -6,6 +6,7 @@ import {
   FaWhatsapp,
   FaInstagram,
   FaTwitch,
+  FaRegCopyright,
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -43,7 +44,9 @@ const Footer = () => {
         <p>Quick Chat</p>
       </Col>
       <p className="text-danger text-center">
-        <small>Copyright@ All Right Reserved Studics </small>
+        <small>
+          Copyright <FaRegCopyright></FaRegCopyright> All Right Reserved Studics{" "}
+        </small>
       </p>
     </Row>
   );

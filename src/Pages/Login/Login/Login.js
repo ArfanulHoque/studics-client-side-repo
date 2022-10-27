@@ -5,6 +5,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
+import GithubLogin from "../../GithubLogin/GithubLogin/GithubLogin";
+import GoogleLogin from "../../GoogleLogin/GoogleLogin/GoogleLogin";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -31,32 +33,38 @@ const Login = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          name="email"
-          type="email"
-          placeholder="Enter email"
-          required
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Login
-      </Button>{" "}
-      <br />
-      <Form.Text className="text-danger fw-bold">{error}</Form.Text>
-    </Form>
+    <div>
+      <Form onSubmit={handleSubmit} className="p-4">
+        <h2>Login</h2>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            name="email"
+            type="email"
+            placeholder="Enter email"
+            required
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Login
+        </Button>{" "}
+        <br />
+        <Form.Text className="text-danger fw-bold">{error}</Form.Text>
+      </Form>
+      <div className="text-center">
+        <GoogleLogin></GoogleLogin>
+        <GithubLogin></GithubLogin>
+      </div>
+    </div>
   );
 };
 

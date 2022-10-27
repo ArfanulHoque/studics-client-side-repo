@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const CoursesCart = ({ courses }) => {
   const { title, description, image, _id } = courses;
-  console.log(_id);
 
   return (
     <div className="d-flex row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">

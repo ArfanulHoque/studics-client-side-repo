@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Error from "../../Error/Error";
 import Main from "../../layout/Main";
 import Blog from "../../Pages/Blog/Blog/Blog";
+import CartDetails from "../../Pages/CartDetails/CartDetails/CartDetails";
 import Category from "../../Pages/Category/Category/Category";
 import CourseDetails from "../../Pages/CourseDetails/CourseDetails/CourseDetails";
 import Courses from "../../Pages/Courses/Courses/Courses";
@@ -26,7 +27,7 @@ export const routes = createBrowserRouter([
         element: <Category></Category>,
         loader: ({ params }) =>
           fetch(
-            `https://studics-website-server.vercel.app/courses/${params.id}`
+            `https://studics-website-server.vercel.app/category/${params.id}`
           ),
       },
       {
@@ -52,6 +53,10 @@ export const routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/cartDetails",
+        element: <CartDetails></CartDetails>,
       },
       {
         path: "/courseDetails/:id",

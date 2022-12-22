@@ -1,6 +1,6 @@
-Project Name: Studics
+## Project Name: Studics
 
-## Client Side Private repo link
+### Client Side Private repo link
 
 Click here for the private repo:https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-ArfanulHoque#readme
 

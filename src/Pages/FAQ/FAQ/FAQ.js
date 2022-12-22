@@ -77,8 +77,7 @@ const FAQ = () => {
           overrun their original schedules. It expresses both the rough
           allocation of time to easy and hard portions of a programming project
           and the cause of the lateness of many projects (that is, failure to
-          anticipate the hard parts). In other words, it takes both more time
-          and more coding than expected to make a project work.
+          anticipate the hard parts).
         </p>
       </div>
     </div>
